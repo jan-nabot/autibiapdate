@@ -1,0 +1,73 @@
+This program purpose is to indirectly bring autonomous update &
+configuration migration facility back to Linux Tibia client.
+
+Run it by typing:
+python /path/to/autibiapdate.py
+
+from directory parent to at least one obsolete client version.
+That's all you need to know to run this program, keep reading
+if something is not clear.
+
+If obsolete version was actively used, it should have settings (characterdata
+and conf directories) and minimap directory. If that is the case, newest
+Tibia release is downloaded from official tibia.com site, extracted,
+settings&minimap are copied from obsolete version to new one and
+you should be ready to go.
+
+Intended usage example scenario:
+(Steps 1-5 are to be performed only once and they are only SUGGESTED)
+1. Get this program to your computer any way you like.
+2. Create directory where your Tibia versions will be stored.
+Name does not matter, location neither as long as it is somewhere 
+you have proper access to.
+3. Copy this program and last Tibia version directory (example name:
+tibia-49.55.5025) to directory you just created.
+4. Make sure you have read permissions to conf, characterdata and
+minimap directories in tibia-XX.XX.XXXX (whatever version you
+have been using until now) and write permissions to directory you just
+created). Unix command chmod can be used to edit permissions if they
+are not correct currently.
+5. Change your current directory to directory you created in step 2.
+6. Execute this program by typing:
+    python autibiapdate.py
+
+After completing step 6, program will find obsolete version (for example,
+tibia-49.55.5025), confirm it contains files needed for migration
+(characterdata, conf, minimap), download new client, unpack it and migrate.
+Now you can run Tibia as usual (but remember, if you followed above steps and
+created new directory, location of startup script has changed, obviously).
+
+From now on, anytime you see usual Linux announcement of new update (or just
+can't log in to the game anymore), just go to directory (by default the one you
+created in step 2) containing: Tibia versions and this program, and perform
+step 6.
+
+To make it a bit more clearer and highlight utility of this program, let's
+compare 'manual' update process and 'autibiapdate' version, starting with
+manual:
+ -update is released
+ -you go to client download webpage, accept agreement, choose linux version
+ -client get's downloaded, you unpack it in directory of your choice
+ -now if you do not want to lose hotkey,client presets and minimap files, you 
+need to copy them from previous to current version directory
+ -client should be ready to go
+Now, for autibiapdate process:
+ -update is released
+ -you go to directory containing your current (now obsolete) Tibia release
+ -execute autibiapdate.py with Python interpreter of your choice
+ -download, unpacking and migration is done automatically
+ -client should be ready to go
+Considering yearly amount of updates to client, this program can save you
+up to 10 minutes per year :)
+
+NOTICE: You should avoid running this program as root or with sudo, otherwise
+permissions might get messed up (as usually when root is involved), 
+and you will have to run client with sudo as well or play around with chmod.
+NOTICE: This program have necessary safety measures to prevent overwriting 
+of your precious minimap files, but release you from duty of sustaining
+backups. I am beginner programmer, don't trust me.
+
+github.com/user/jan-nabot/
+Clair Voyance (on Morta)
+Janna Bot (on EUNE)
+
